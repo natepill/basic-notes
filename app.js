@@ -22,9 +22,8 @@ if (command === 'add'){
     var note = notes.addNote(argv.title, argv.body)
     if (typeof note === "object"){
         console.log("Note Added")
-        console.log("----")
-        console.log(`Title: ${note.title}`)
-        console.log(`Body: ${note.body}`)
+        notes.logNote(note);
+
     }
     else{
         console.log("Note title in use!")
@@ -36,7 +35,14 @@ if (command === 'add'){
     var message = noteRemoved ? 'No notes were removed' : 'Note was removed'
     console.log(message)
 }else if(command === 'read'){
-    notes.readNote(argv.title);
+    var note = notes.getNote(argv.title);
+    if(typeof note === "object"){
+        console.log("Note read")
+        notes.logNote(note);
+    }else{
+        console.log("Note not found!")
+    }
+
 }
 else{
     console.log('Command not recognized');

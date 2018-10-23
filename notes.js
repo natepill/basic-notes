@@ -44,7 +44,7 @@ var addNote = (title, body) => {
 
 
 var getAll = () => {
-    console.log('getting all notes')
+
 };
 
 var removeNote = (title) => {
@@ -59,8 +59,21 @@ var removeNote = (title) => {
 
 };
 
+var logNote = (note) => {
+    console.log("---")
+    console.log(`Note Read: ${note.title}`)
+    console.log(`Note Body: ${note.body}`)
+};
+
 var readNote = (title) => {
 
+};
+
+var getNote = (title) => {
+    var notes = fetchNotes();
+    var filteredNotes = notes.filter((note) => note.title === title);
+    // console.log(`note found is: ${filteredNotes[0]}`)
+    return filteredNotes[0]
 };
 
 
@@ -68,8 +81,12 @@ var readNote = (title) => {
 // If you want to use any of the functions or variables above, you must export them using ES6 conventions
 module.exports = {
     addNote: addNote,
-    // For ES6 we can leave out the : addNote if we want because ES6 allows us set object attributes and values that are exactly the same we can just have the name of the function/variable to be assigned as the value
+    // For ES6 we can leave out the : addNote if we want because ES6 allows us set object attributes and values that are named exactly the same  to just have the name of the function/variable to be assigned as the value
     getAll: getAll,
+
+    getNote: getNote,
+
+    logNote: logNote,
 
     removeNote: removeNote,
 
