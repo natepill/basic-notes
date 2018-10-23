@@ -29,7 +29,6 @@ var addNote = (title, body) => {
 
 
 
-
     var duplicateNotes = notes.filter((note) => note.title === title);
         //This function is called back once for every item in the array
 
