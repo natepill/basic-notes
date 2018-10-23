@@ -29,7 +29,17 @@ if (command === 'add'){
         console.log("Note title in use!")
     }
 }else if (command === 'list'){
-    notes.getAll();
+    var allNotes = notes.getAll();
+    console.log(`Printing ${allNotes.length} note(s).`);
+    allNotes.forEach((note) => {
+        notes.logNote(note)
+    });
+    //or can have
+    // allNotes.forEach((note) => notes.logNote(note));
+
+
+
+
 }else if(command === 'remove'){
     var noteRemoved = notes.removeNote(argv.title);
     var message = noteRemoved ? 'No notes were removed' : 'Note was removed'
