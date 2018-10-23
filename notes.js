@@ -48,11 +48,19 @@ var getAll = () => {
 };
 
 var removeNote = (title) => {
-    console.log('removing ', title)
+    console.log("REMOVING NOTES!!!!!!!")
+    var notes = fetchNotes();
+    var filteredNotes = notes.filter((note) => note.title !== title);
+    saveNotes(filteredNotes);
+    //We fetch existing notes, then we store all the notes that dont match the title of the note we're trying to remove with into filterednotes
+    //We save the filteredNotes array which has removed the desired note
+
+    return notes.length === filteredNotes.length;
+
 };
 
 var readNote = (title) => {
-    console.log('reading ', title )
+
 };
 
 

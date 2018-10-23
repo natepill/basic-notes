@@ -32,7 +32,9 @@ if (command === 'add'){
 }else if (command === 'list'){
     notes.getAll();
 }else if(command === 'remove'){
-    notes.removeNote(argv.title);
+    var noteRemoved = notes.removeNote(argv.title);
+    var message = noteRemoved ? 'No notes were removed' : 'Note was removed'
+    console.log(message)
 }else if(command === 'read'){
     notes.readNote(argv.title);
 }
